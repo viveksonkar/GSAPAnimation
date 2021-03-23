@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="splittext.js" ></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CSSRulePlugin3.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&display=swap" rel="stylesheet">
+    <style>
+        body{
+            font-family: 'Montserrat', sans-serif;
+        }
+        .studio{
+            width: 512px;
+            height: 512px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .background{
+            width: 100%;
+            height: 100%;
+            padding: 12px;
+        }
+        .text{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-left: 5%;
+        }
+        .main_text{
+            font-size: 10px;
+            font-weight: 200;
+            color: white;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        .jumbo{
+            text-align: center;
+            font-size: 70px;
+            color: white;
+            line-height: 70px;
+            font-weight: 800;
+        }
+        .disc_text{
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        
+        .discount{
+           
+            font-weight: 200;
+            color: yellow; 
+        }
+        .shop_now{
+            position: absolute;
+            top: 70%;
+            margin-left: 10%;
+            transform: translateY(-50%);
+            border-radius: 10px;
+            border: none;
+            padding: 4px 16px;
+        }
+        .circle{
+            position: absolute;
+            min-width: 155px;
+            min-height: 155px;
+            top: 0%;
+            left: 305px;
+            border-radius: 50%;
+            border: 4px solid rgb(241, 227, 25);
+            transform: translateX(-60%);
+            background-color: white;
+            box-shadow: 8px 9px 8px -8px;
+        }
+        .circle__inner {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .circle__wrapper {
+            display: table;
+            width: 100%;
+            height: 100%;
+            
+        }
+
+        .circle__content {
+            display: table-cell;
+            padding: 1em;
+            vertical-align: middle;
+            text-align: center;
+            font-weight: 400;
+            color:black;
+            text-shadow: 0 0 2px 5px #000000;
+            
+        }
+	.st0{fill:#d03a26;}
+	.st1{fill:#B21E18;}
+	.st2{fill:#E4535B;}
+	.st3{fill:#E2343D;}
+	.st4{fill:#FFF1ED;}
+	.st5{fill:#FFF6F3;}
+	.st6{font-family:'MyriadPro-Regular';}
+	.st7{font-size:14.2281px;}
+	.st8{font-family:'MyriadPro-Bold';}
+	.st9{font-size:81.4398px;}
+	.st10{fill:#FFF4F3;}
+	.st11{font-size:22.9982px;}
+	.st12{fill:#F0FF0D;}
+	.st13{fill:#FFF5F3;}
+	.st14{font-size:12.9598px;}
+	.st15{font-size:44.5432px;}
+    </style>
+    <title>GSAP Animation</title>
+</head>
+<body>
+    <div class="studio">
+        <div class="background">
+            <svg version="1.1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                <g id="Layer_1"><rect class="st0" width="512" height="512"/></g>
+                <g id="Layer_4 bottom_right_polygon"><polygon class="st1" points="247,314.9 383.3,229.5 548.8,488.8 552.1,526.8 391.2,531 	"/></g>
+               <!--  <g id="Layer_2 wrapping_circle">
+                    <path class="st2" d="M318.6,196.7c-44.7,0-80.9,36.2-80.9,80.9s36.2,80.9,80.9,80.9s80.9-36.2,80.9-80.9S363.3,196.7,318.6,196.7z
+                        M318.6,353.7c-42,0-76-34-76-76s34-76,76-76s76,34,76,76S360.6,353.7,318.6,353.7z"/>
+                    <path class="st3" d="M399.3,277.7c0,44.5-36.1,80.7-80.7,80.7c-27.9,0-52.4-14.1-66.9-35.6l3.7-2.2c13.6,20.2,36.7,33.4,62.8,33.4
+                        c41.8,0,75.8-33.9,75.8-75.8c0-12.5-3-24.3-8.4-34.7l4.7-2.8C396.1,251.8,399.3,264.3,399.3,277.7z"/>
+                    <path class="st3" d="M385.6,243.5l-130.2,77c0,0,0,0-0.1-0.1L385.6,243.5C385.6,243.4,385.6,243.5,385.6,243.5z"/>
+                </g>
+                <g id="Layer_3 white_circle">
+                    <circle class="st4" cx="318.1" cy="277.7" r="76"/>
+                </g> -->
+            </svg>
+
+            <div class="text">
+                <div class="main_text text-desc">FOOTWEAR POSITION</div>
+                <div class="jumbo text-desc">SALE</div>
+
+                <div class="disc_text">
+                    UPTO <span class="discount">50% OFF</span>
+                </div>
+                <div class="circle">
+                    <div class="circle__inner">
+                      <div class="circle__wrapper">
+                        <div class="circle__content">Your Logo Here AB YHI RAHEGA PURI TRAH SE YHI RAHEGA RAHEGA</div>
+                      </div>
+                    </div>
+                </div>
+    
+
+            </div>
+
+            <div>
+                <button class="shop_now">SHOP NOW</button>
+            </div>
+        </div>
+    </div>
+
+    <button onclick="replay()" style="margin-top: 40px;">Click me</button>
+
+    <script type="text/javascript">
+
+        var audio = new Audio('bensound-energy.mp3');
+        //audio.play();
+    
+        /* var text = document.body.querySelector(".product-desc-text");
+        var splitText = acAnimated.Plugins.SplitText(text, {words: 1, chars: 1, spacing: 10}); */
+    
+        var productTitle = CSSRulePlugin.getRule(".product-header-title:after");
+        var productPriceRule = CSSRulePlugin.getRule(".product-price:after");
+        var productJumboRule = CSSRulePlugin.getRule(".product-jumbo:after");
+    
+        var timeline = gsap.timeline();
+        
+        timeline.from(".st1",{ duration: 0.8, x:200, y:250, transformOrigin: "center", stagger: 0.2 })
+                .from(".text-desc",{ duration:1,opacity:0,stagger:0.5, ease: Power1.easeOut })
+                .from(".disc_text",{ duration:1,x:-400 },"-=1")
+                .from(".circle__content",{ duration:1, rotationY:180, opacity:0, ease: Bounce.easeOut  })
+                .from(".shop_now",{ duration:1, opacity:0, scale: 1.2, ease: Bounce.easeOut })
+                .from(".circle",{})
+            ;
+    
+        function replay(){
+            //audio.play();
+            timeline.restart();
+        }
+    
+    </script>
+</body>
+</html>
