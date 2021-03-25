@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="splittext.js" ></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CSSRulePlugin3.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&display=swap" rel="stylesheet">
+    <style>
+        body{
+            font-family: 'Montserrat', sans-serif;
+        }
+        .studio{
+            width: 512px;
+            height: 512px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .background{
+            background: rgb(30 47 103);
+            width: 100%;
+            height: 100%;
+            padding: 0px;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .inner_square{
+            display: flex;
+            padding: 25px 25px 25px 25px;
+        }
+        
+        .text{
+            position:relative;
+            min-width: 230px;
+            color: white;
+            background: rgb(30 47 103);
+        }
+        .image{
+            position: relative;
+            background-color: white;
+            min-width: 220px;
+        }
+        .s_1{
+            display: flex;
+            position: relative;
+            border: solid 5px; 
+        }
+        .inner_img{
+            top: 5px;
+            position: relative;
+            border-top: coral solid 5px;    
+            border-bottom: coral solid 5px;
+            border-right: coral solid 5px;
+            min-height: 400px;
+            margin-right: 20px;
+            margin-top: 10px;
+        }
+        .banner_text_1{
+            position: relative;
+            color: coral;
+            top: 15%;
+            letter-spacing: 1px;
+            font-size: 50px;
+            font-weight: 500;
+            font-family:'Times New Roman', Times, serif;
+            margin: 5px;
+        }
+        .banner_text_2{
+            position: relative;
+            color:white;
+            top: 10%;
+            letter-spacing: 2px;
+            font-size: 60px;
+            font-weight: 500;
+            margin: 5px;
+        }
+        .banner_text_3{
+            position: relative;
+            background-color: coral;
+            top: 5%;
+            color: black;
+            text-align: center;
+            min-width: 10px;
+            margin: 20px;
+            letter-spacing: 3px;
+            padding: 10px 10px;
+            /* text-shadow: 2px 2px 4px #000000; */
+            font-weight:lighter;
+        }
+        .dicount_text_1{
+            position: relative;
+            top: 15%;
+            color: white;
+            font-size: medium;
+            margin: 20px;
+            line-height: 5px;
+            letter-spacing: 1px;
+            margin-top: 20px;
+        }
+        .dicount_text_2{
+            position: relative;
+            top: 15%;
+            line-height: 5px;
+            color: coral;
+            font-size: 30px;
+            margin: 20px;
+            
+        }
+        .dicount_text_3{
+            position: relative;
+            top: 15%;
+            line-height: 5px;
+            color: white;
+            font-size: medium;
+            margin: 20px;
+        }
+        .shop_now{
+            position: relative;
+            top: 15%;
+            left: 40px;
+            margin: 20px;
+            background-color: coral;
+            color: cornsilk;
+            border: none;
+            padding: 10px 15px;
+            text-shadow: 2px 2px 4px #000000;
+        }
+    </style>
+    <title>GSAP Animation</title>
+</head>
+<body>
+    <div class="studio">
+        <div class="background">
+
+            <div class="inner_square">
+                <div class="s_1">
+                    <div class="text">
+                        <div class="banner_text_1 b">FASHION</div>
+                        <div class="banner_text_2 b">SALE</div>
+                        <div class="banner_text_3 b">SPECIAL OFFER</div>
+
+                        <div class="dicount_text_1 dt">UP TO</div>
+                        <div class="dicount_text_2 dt">50%</div>
+                        <div class="dicount_text_3 dt">OFF</div>
+
+                        <button class="shop_now">SHOP NOW</button>
+                    </div>
+                <div class="image">
+                       <div class="inner_img">
+                            <div>
+                                <img src="" alt="">
+                            </div>
+                       </div> 
+                    </div>
+                </div>
+                
+            </div>
+                
+            
+               
+        </div>
+    </div>
+
+    <button onclick="replay()" style="margin-top: 40px;">Click me</button>
+    
+
+    <script type="text/javascript">
+
+        var audio = new Audio('bensound-energy.mp3');
+        //audio.play();
+    
+        /* var text = document.body.querySelector(".product-desc-text");
+        var splitText = acAnimated.Plugins.SplitText(text, {words: 1, chars: 1, spacing: 10}); */
+    
+        var productTitle = CSSRulePlugin.getRule(".product-header-title:after");
+        var productPriceRule = CSSRulePlugin.getRule(".product-price:after");
+        var productJumboRule = CSSRulePlugin.getRule(".product-jumbo:after");
+    
+        var timeline = gsap.timeline();
+        
+        timeline
+                .from(".b",{y:-100,opacity:0,stagger:.5,duration :1})
+                .from(".dt",{opacity:0,duration:1})
+                .from(".shop_now",{y:10,opacity:0,duration:1})
+    
+        function replay(){
+            //audio.play();
+            timeline.restart();
+        }
+    
+    </script>
+</body>
+</html>
