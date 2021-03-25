@@ -9,6 +9,7 @@
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CSSRulePlugin3.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
     <style>
         body{
             font-family: 'Montserrat', sans-serif;
@@ -155,14 +156,22 @@
     </div>
 
     <button onclick="replay()" style="margin-top: 40px;">Click me</button>
+    <button onclick="pause()" style="margin-top: 40px;">No Audio</button>
+
+    <div class="examples">
+        <ul class="menu">
+            <li><a href="index.html">Equal Parts</a></li>
+            <li><a href="sales-template.html">Sales</a></li>
+            <li><a href="soothing.html">Soothing</a></li>
+            <li><a href="heart-beat.html">Heart Beat</a></li>
+        </ul>
+    </div>
 
     <script type="text/javascript">
 
-        var audio = new Audio('bensound-energy.mp3');
-        //audio.play();
-    
-        /* var text = document.body.querySelector(".product-desc-text");
-        var splitText = acAnimated.Plugins.SplitText(text, {words: 1, chars: 1, spacing: 10}); */
+        var audio = new Audio('bensound-dubstep.mp3');
+        audio.currentTime = 3
+        audio.volume = 0.01;
     
         var productTitle = CSSRulePlugin.getRule(".product-header-title:after");
         var productPriceRule = CSSRulePlugin.getRule(".product-price:after");
@@ -185,8 +194,14 @@
             ;
     
         function replay(){
-            //audio.play();
+            audio.play();
+            audio.currentTime = 3
             timeline.restart();
+        }
+
+        function pause(){
+            audio.currentTime = 3
+            audio.pause();
         }
     
     </script>

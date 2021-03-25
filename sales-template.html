@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="splittext.js" ></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CSSRulePlugin3.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body{
+            font-family: 'Montserrat', sans-serif;
+        }
+        .studio{
+            width: 512px;
+            height: 512px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .background{
+            width: 100%;
+            height: 100%;
+            padding: 0px;
+            display: flex;
+            background: #D2282B;
+        }
+        svg{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .background-bar{
+            position: absolute;
+            background: #B21E18;
+            width: 200px;
+            height: 400px;
+            transform: rotate(-30deg) translate(-50%, -50%);
+            bottom: -45%;
+            right: -48%;
+        }
+        .product{
+            width: 100%;
+            position: relative;
+            display: flex;
+            z-index: 100;
+        }
+        .product-section{
+            width: 50%;
+            position: inherit;
+        }
+        .circle{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-top: 50%;
+            z-index: 200;
+            padding: 12px;
+            box-sizing: border-box;
+        }
+        .circle-border{
+            background: white;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            z-index: 100;
+            opacity: 0.3;
+            position: absolute;
+        }
+        .circle-inside{
+            background: #D02627;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            z-index: 100;
+            position: absolute;
+            top: 22px;
+            left: 22px;
+        }
+        .circle-inner{
+            position: absolute;
+            width: 174px;
+            height: 174px;
+            background: white;
+            border-radius: 50%;
+            margin: 13px;
+            box-shadow: 0 0 10px -3px #000000;
+            z-index: 1000;
+            overflow: hidden;
+        }
+        .cirle-img-reponsive{
+            width: 100%;
+            height: 100%;
+        }
+        .product-text{
+            position: absolute;
+            top: 50%;
+            transform: translate(0%, -50%);
+            left: 10%;
+            text-align: center;
+            color: white;
+            font-size: 14px;
+        }
+        .text-strike:before{
+            content: '';
+            position: absolute;
+            border-bottom: 1px solid #fff;
+            opacity: 1;
+            width: 100%;
+            height: 1px;
+            top: 7px;
+            left: 0;
+            transform: translate(0%, -50%);
+            opacity: 0.4;
+        }
+        .text-strike-inner{
+            position: relative;
+            background: #D02627;
+            padding: 4px 8px;
+        }
+        .text-jumbo{
+            font-size: 80px;
+            line-height: 80px;
+            font-weight: 800;
+            line-height: 56px;
+            margin: 12px 0;
+        }
+        .text-discount{
+            font-size: 24px;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+        .text-highlight{
+            color: #E1C249;
+        }
+        .product-shop-btn{
+            margin: 40px 0;
+            background: white;
+            padding: 10px 40px;
+            border-radius: 4px;
+            border: none;
+            font-weight: 800;
+            box-shadow: 0 0 8px -1px #000000;
+            outline: none;
+            cursor: pointer;
+        }
+    </style>
+    <title>GSAP Animation</title>
+</head>
+<body>
+    <div class="studio">
+        <div class="background">
+            <div class="background-bar"></div>
+            <div class="product">
+                <div class="product-wrapper product-section">
+                    <div class="product-text">
+                        <div class="text">
+                            <div class="text-desc text-strike">
+                                <span class="text-strike-inner">FOOTWEAR FASHION</span>
+                            </div>
+                            <div class="text-desc text-jumbo">SALE</div>
+                            <div class="text-desc text-discount">UPTO <span class="text-highlight"> 50% OFF </span></div>
+                        </div>
+                        <div>
+                            <button class="product-shop-btn">
+                                SHOP NOW
+                            </button>
+                        </div>   
+                    </div>  
+                </div>
+                <div class="product-display product-section">
+                    <div class="circle">
+                        <div class="circle-border"></div>
+                        <div class="circle-inside"></div>
+                        <div class="circle-inner">
+                            <img src="hat.png" class="cirle-img-reponsive" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>           
+               
+        </div>
+    </div>
+
+    <button onclick="replay()" style="margin-top: 40px;">Click me</button>
+    <button onclick="pause()" style="margin-top: 40px;">No Audio</button>
+    
+    <div class="examples">
+        <ul class="menu">
+            <li><a href="index.html">Equal Parts</a></li>
+            <li><a href="sales-template.html">Sales</a></li>
+            <li><a href="soothing.html">Soothing</a></li>
+            <li><a href="heart-beat.html">Heart Beat</a></li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+
+        var audio = new Audio('bensound-dubstep.mp3');
+        audio.currentTime = 3
+        audio.volume = 0.01;
+    
+        var timeline = gsap.timeline();
+        
+        timeline.from(".background-bar",{ duration: 1, x: -50, y: 100 })
+            .from('.product-display', { duration: 1, scale: 0, ease: Bounce.easeOut }, "-=0.5")
+            .from('.circle-inner', { duration: 0.4, rotate: 720 })
+            .from('.text-desc', { duration: 0.6, opacity: 0, y: 100, ease: Bounce.easeOut, stagger: 0.2 })
+            .from('.product-shop-btn', { duration: 0.4, opacity: 0, x: -200, ease: Bounce.easeOut })
+    
+        function replay(){
+            audio.play();
+            audio.currentTime = 3
+            timeline.restart();
+        }
+
+        function pause(){
+            audio.currentTime = 3
+            audio.pause();
+        }
+    
+    </script>
+</body>
+</html>
