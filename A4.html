@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="splittext.js" ></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CSSRulePlugin3.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body{
+            font-family: 'Montserrat', sans-serif;
+            box-sizing: border-box;
+        }
+        .studio{
+            width: 512px;
+            height: 512px;
+            position: relative;
+        }
+        .background{
+            background:rgb(253,11,51);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-wrapper{
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        .product{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .product-section{
+            width: 50%;
+            height: 100%;
+        }
+        .product-display{
+            background: white;
+            width: 40%;
+            height: 100%;
+
+        }
+        .product-info{
+            width: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-text{
+            text-align: center;
+            color: white;
+        }
+        .product-header-title{
+            font-size: 16px;
+            letter-spacing: 1px;
+
+        }
+        .product-jumbo{
+            font-size: 54px;
+            line-height: 54px;
+            letter-spacing: 4px;
+        }
+        .product-large-text{
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+        .product-desc{
+            margin: 30px 0;
+        }
+        .product-shop-btn{
+            background: white;
+            padding: 10px 20px;
+            border: none;
+            font-weight: 800;
+            color: rgb(253,11,51);        
+            outline: none;
+            cursor: pointer;
+        }
+        .bold{
+            font-weight: bold;
+        }
+        .circle{
+            position: relative;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            margin: 25% 0 0 10%;
+            z-index: 200;
+            padding: 12px;
+            box-sizing: border-box;
+        }
+        .circle-border{
+            background: rgb(253,11,51);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            z-index: 100;
+            position: absolute;
+        }
+        .circle-inner{
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            margin: 5px;
+            box-shadow: 0 0 10px -3px #000000;
+            z-index: 1000;
+            overflow: hidden;
+        }
+        .discount-jumbo{
+            color: rgb(253,11,51);
+            font-size: 50px;
+            line-height: 50px;         
+        }
+        .discount-text{
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+        .product-discount{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-image{
+            transform-origin: translate(-50%, -50%);
+            width: 100%;
+            height: 50%;
+            margin-top: 50%;
+            padding: 5%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="studio-wrapper">
+        <div class="studio">
+           <div class="background">
+               <div class="product-wrapper">
+                   <div class="product">
+                    <div class="product-section product-display">
+                        <div class="circle">
+                            <div class="circle-border"></div>
+                            <div class="circle-inner">
+                                <div class="product-discount">
+                                    <div class="product-discount-text">
+                                        <div class="product-header-title discount-text">FLAT</div>
+                                        <div class="product-header-title discount-jumbo bold">50%</div>
+                                        <div class="product-header-title discount-text">All Product</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-image">
+                            <img src="hat.png" class="cirle-img-reponsive" alt="">
+                        </div>
+                    </div>
+                    <div class="product-section product-info">
+                        <div class="product-text">
+                            <div class="product-header">
+                                <div class="product-header-title bold">CHECK OUT OUR</div>
+                                <div class="product-header-title product-jumbo bold"> NEW</div>
+                                <div class="product-header-title product-large-text">PRODUCT</div>
+                            </div>
+                            <div class="product-desc">
+                                <div class="product-desc-text">Every purchase</div>
+                                <div class="product-desc-text">we cut $25 from</div>
+                                <div class="product-desc-text">the total price</div>
+                            </div>
+                            <div>
+                                <button class="product-shop-btn">
+                                    BUY NOW
+                                </button>
+                            </div>  
+                        </div>
+                    </div>
+                   </div>
+               </div>
+           </div> 
+
+
+        </div>
+    </div>
+
+    <button onclick="replay()" style="margin-top: 40px;">Click me</button>
+    <button onclick="pause()" style="margin-top: 40px;">No Audio</button>
+
+    <div class="examples">
+        <ul class="menu">
+            <li><a href="index.html">Equal Parts</a></li>
+            <li><a href="sales-template.html">Sales</a></li>
+            <li><a href="soothing.html">Soothing</a></li>
+            <li><a href="heart-beat.html">Heart Beat</a></li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+
+        var audio = new Audio('bensound-dubstep.mp3');
+        audio.currentTime = 3
+        audio.volume = 0.01;
+    
+       // var productTitle = CSSRulePlugin.getRule(".product-header-title:after");
+        var productPriceRule = CSSRulePlugin.getRule(".product-price:after");
+        var productJumboRule = CSSRulePlugin.getRule(".product-jumbo:after");
+    
+        var timeline = gsap.timeline()
+            .from('.product-info', { duration: 1, width: 0, opacity: 0, ease: Power4.easeOut })
+            .from('.product-display', { duration: 1, width: '100%', ease: Power4.easeOut }, '-=1')
+            .fromTo('.product-image', { duration: 1, height: '100%', marginTop: '0'}, 
+                { duration: 1, height: '50%', marginTop: '50%'}, '-=1')
+            .from('.product-image', { duration: 0.6, rotate: 720, ease: Bounce.easeOut })
+            .to('.product-header-title', { duration: 0.6, opacity: 1, stagger: 0.3 }, "-=2")
+            .to( productTitle, { cssRule: { scaleY: 0 }, duration: 1 })
+            .from('.product-desc-text', { duration: 0.6, y: 40, opacity: 0, stagger: 0.3, ease: Power4.easeOut })
+            .to( productJumboRule, { cssRule: { scaleY: 0 }, duration: 1})
+            .to('.product-jumbo', { duration: 1, opacity: 1}, "-=1")
+            .to( productPriceRule, { cssRule: { scaleY: 0 }, duration: 1})
+
+            //timeline.pause();
+
+        function replay(){
+            audio.play();
+            audio.currentTime = 3
+            timeline.restart();
+        }
+
+        function pause(){
+            audio.currentTime = 3
+            audio.pause();
+        }
+    
+    </script>
+    
+</body>
+</html>
