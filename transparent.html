@@ -19,7 +19,7 @@
     <script>
         var canvas = document.getElementById("canvas");
         image = new MarvinImage();
-        image.load("https://api.whybuy.io/uploads/uploadbg-1608532078874.jpg", imageLoaded);
+        image.load("t.jpg", imageLoaded);
 
         canvas.toDataURL('image/png', 0.5);
 
@@ -38,7 +38,7 @@
                 var g = image.getIntComponent1(x,y);
                 var b = image.getIntComponent2(x,y);
                 
-                    if(r >= 250 && g >= 250 && b >= 250){
+                    if(r >= 200 && g >= 200 && b >= 200){
                                 image.setIntColor(x, y, 0);
                     }
                 }
